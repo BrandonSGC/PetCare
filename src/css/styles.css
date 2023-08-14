@@ -1,0 +1,25 @@
+/* Font */
+
+/* Variables */
+:root {
+    --white: #fff;
+    --black: #000;
+}
+
+html { /* Box Model */
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-size: 1.6rem;
+}
+
+/* Globals */ 
+
+img {
+    max-width: 100%;
+    display: block;
+}

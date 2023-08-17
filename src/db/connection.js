@@ -27,8 +27,10 @@ async function spCreateUser(name, surnames, email, password) {
       .execute("spPetCare_CreateUser");
 
     console.log("User created succesfully");
+    return true;
   } catch (error) {
     console.error(`Error executing spPetCare_CreateUser: ${error}.`);
+    return false;
   }
 }
 

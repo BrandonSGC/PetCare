@@ -1,15 +1,19 @@
 const express = require("express");
 const app = express();
 
-// Use express middleware.
+// Express middleware.
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const { spCreateUser } = require("../db/connection");
 
 // Absolute Path
 const path = require("path");
 app.use(express.static(path.join(__dirname, "..")));
+
+// Import the userRoutes router from users.js
+const userRoutes = require('../routes/users.js');
+
+// Use the userRoutes router
+app.use('/', userRoutes);
 
 // Server
 const PORT = 3000;
@@ -20,18 +24,4 @@ app.listen(PORT, () => {
 // API
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "index.html"));
-});
-
-
-app.post("/register", async (req, res) => {
-    // Get data from form.
-    const { name, surnames, email, password } = req.body;
-    
-    // Execute Stored Procedure.
-    try {
-      // await spCreateUser();
-
-    } catch (error) {
-      console.log(error);
-    }
 });

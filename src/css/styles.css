@@ -356,6 +356,12 @@ fieldset {
     }
 }
 
+/* Pet's Register Form */
+.pet__button {
+    width: 100%;
+    background-color: var(--mediumAquamarine);
+}
+
 
 
 /* My Pets */

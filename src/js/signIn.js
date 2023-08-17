@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Variables
     const registerButton = document.querySelector('.signIn__button');
 
-
     // Events
     registerButton.addEventListener('click', registerUser);
 
@@ -19,15 +18,8 @@ function registerUser(evt) {
     const email = document.querySelector('#email').value;
     const password = document.querySelector('#password').value;
 
-    console.log(name, surnames, email, password);
-
     // Create object to send.
-    const data = {
-        name,
-        surnames,
-        email,
-        password
-    }
+    const data = { name, surnames, email, password }
 
     fetch('./registerUser', {
         method: 'POST',

@@ -9,11 +9,13 @@ app.use(express.urlencoded({ extended: true }));
 const path = require("path");
 app.use(express.static(path.join(__dirname, "..")));
 
-// Import the userRoutes router from users.js
+// Import Routers
 const userRoutes = require('../routes/users.js');
+const petRoutes = require('../routes/pets.js');
 
 // Use the userRoutes router
 app.use('/', userRoutes);
+app.use('/', petRoutes);
 
 // Server
 const PORT = 3000;

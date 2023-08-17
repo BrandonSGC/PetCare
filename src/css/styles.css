@@ -48,7 +48,9 @@ a {
 }
 
 fieldset {
-
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
 [class$="container"] {
@@ -69,6 +71,7 @@ fieldset {
     padding: 1rem;
     border: none;
     border-radius: .3rem;
+    cursor: pointer;
 }
 
 /* Header */
@@ -144,7 +147,6 @@ fieldset {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
     text-align: center;
 }
 
@@ -157,7 +159,7 @@ fieldset {
 
     .welcome__text {
         text-align: left;
-        font-size: 2.3rem;
+        /* font-size: 2.3rem; */
     }
 }
 
@@ -168,7 +170,11 @@ fieldset {
     margin: 1.5rem 0;
 }
 
-
+@media (min-width: 768px) {
+    .welcome__button {
+        max-width: 25rem;
+    }
+}
 
 /* Galery */
 
@@ -240,7 +246,115 @@ fieldset {
   color: var(--aqua);
 }
 
-/* Forms */
+
+/* Alerts */
+.alert {
+    text-align: center;
+    font-weight: 700;
+    padding: 1rem;
+    border-radius: .5rem;
+    margin: .5rem 0;
+}
+.success {
+    background-color: #168200;
+    color: var(--white);
+}
+.warning {
+    background-color: #e8af04;
+    color: var(--white);
+}
+.error {
+    background-color: #ff0000;
+    color: var(--white);
+}
+
+@media (min-width: 768px) {
+    .alert {
+        width: 60%;
+        margin: 1rem auto;
+    }
+}
+
+/* Global Forms */
+.form {
+    padding: 2rem;
+}
+
+/* .form__label {
+
+} */
+
+.form__input {
+    border: none;
+    padding: .7rem;
+    border-radius: .5rem;
+}
+
+/* SignIn Form*/
+
+.signIn {
+    margin: 5rem;
+}
+
+.signInForm {
+    background-color: var(--lightOlive);
+    border-radius: .3rem;
+}
+
+.signIn__heading {
+    margin: 1rem 0 3rem 0;
+}
+
+.signIn__label {
+    display: block;
+    margin-bottom: .3rem;
+}
+
+.signIn__input {
+    margin-bottom: .3rem;
+    width: 100%;
+}
+
+.signIn__button {
+    background-color: var(--mediumAquamarine);
+    font-weight: 700;
+    width: 100%;
+    border-radius: .5rem;
+}
+
+@media (min-width: 1000px) {
+    .signInForm {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .signIn__fieldset {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .signIn__field {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .signIn__label {
+        display: inline;
+    }
+    
+    .signIn__input {
+        display: inline;
+    }
+
+    .signIn__button {
+        display: block;
+        width: 30rem;
+        margin: 0 auto;
+    }
+}
 
 
 

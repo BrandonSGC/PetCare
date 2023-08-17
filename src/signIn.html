@@ -29,25 +29,35 @@
 
     <section class="signIn">
         <div class="signIn__container">
-            <h2 class="signIn__heading">Registrarse</h2>
-            <form action="/register" method="POST" class="signInForm">
-                <fieldset class="form__fieldset">
-                    <label class="form__label" for="name">Nombre:</label>
-                    <input class="form__input" type="text" name="name" id="name">
-
-                    <label class="form__label" for="surnames">Apellidos:</label>
-                    <input class="form__input" type="text" name="surnames" id="surnames">
+            
+            <form action="/register" method="POST" class="signInForm form">
+                <h2 class="signIn__heading">Registro de Usuario</h2>
+                <fieldset class="form__fieldset signIn__fieldset">
+                    <div class="signIn__field">
+                        <label class="form__label signIn__label" for="name">Nombre:</label>
+                        <input class="form__input signIn__input" type="text" name="name" id="name" placeholder="Ejemplo: Julanito" required>
+                    </div>
+                    
+                    <div class="signIn__field">
+                        <label class="form__label signIn__label" for="surnames">Apellidos:</label>
+                        <input class="form__input signIn__input" type="text" name="surnames" id="surnames" placeholder="Ejemplo: Abarca" required>
+                    </div>
+                    
                 </fieldset>
                 
-                <fieldset class="form__fieldset">
-                    <label class="form__label" for="email">Email:</label>
-                    <input class="form__input" type="email" name="email" id="email">
+                <fieldset class="form__fieldset signIn__fieldset">
+                    <div class="signIn__field">
+                        <label class="form__label signIn__label" for="email">Email:</label>
+                        <input class="form__input signIn__input" type="email" name="email" id="email" placeholder="ejemplo@email.com" required>
+                    </div>
 
-                    <label class="form__label" for="password">Contraseña:</label>
-                    <input class="form__input" type="password" name="password" id="password">
+                    <div class="signIn__field">
+                        <label class="form__label signIn__label" for="password">Contraseña:</label>
+                        <input class="form__input signIn__input" type="password" name="password" id="password" required>
+                    </div>
                 </fieldset>
-                <p class="alert">Warning</p>
-                <button class="form__button">Registrarse</button>
+                <p class="alert"></p>
+                <button class="button signIn__button">Registrarse</button>
             </form>
         </div>
     </section>

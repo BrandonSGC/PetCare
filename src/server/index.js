@@ -1,10 +1,9 @@
 const express = require("express");
 const app = express();
 
-// Use body-parser middleware
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// Use express middleware.
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const { spCreateUser } = require("../db/connection");
 
@@ -24,13 +23,13 @@ app.get("/", (req, res) => {
 });
 
 
-app.post("/createUser", async (req, res) => {
+app.post("/register", async (req, res) => {
     // Get data from form.
-    const {} = req.body;
+    const { name, surnames, email, password } = req.body;
     
     // Execute Stored Procedure.
     try {
-      await spCreateUser();
+      // await spCreateUser();
 
     } catch (error) {
       console.log(error);

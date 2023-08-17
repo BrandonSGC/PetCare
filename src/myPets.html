@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>PetCare - Mis Mascotas</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <div class="header__display">
+                <a href="./index.html">
+                    <h1 class="header__logo">Pet<span>Care</span></h1>
+                </a>
+                
+                <nav class="navigation">
+                    <a href="./signIn.html" class="navigation__link">Registrarse</a>
+                    <a href="./myPets.html" class="navigation__link">Mis Mascotas</a>
+                    <a href="./index.html" class="navigation__link">Galería</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+   <main class="myPets">
+        <div class="myPets__container">
+            <div class="myPets__selector">
+                <h2 class="myPets__heading">Mascota: </h2>
+                <select class="form__input" name="pet" id="pet">
+                    <option value="">-- Seleccione una mascota</option>
+                    <option value="Sam">Sam</option>
+                </select>
+            </div>
+            
+            <div class="myPets__display">
+                <section class="pet">
+                    <header class="pet__heading">Mascota</header>
+                    <p>Nombre: <span id="name">Sam</span></p>
+                    <p>Dueño: <span id="owner">Brandon Gómez</span></p>
+                    <p>Animal: <span id="kind"> Perro</span></p>
+                    <p>Edad: <span id="age"> 2 años</span></p>
+                </section>
+
+                <section class="vaccines">
+                    <header class="vaccines__heading">Vacunas</header>
+                    <p class="">Fecha: <span>20/10/2023</span></p>
+                    
+                    <p class="">Descripcion:</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
+
+                    <button>Eliminar</button>
+                </section>
+
+                <section class="deworming">
+                    <header class="deworming__heading">Desparacitaciones</header>
+                    <p class="">Fecha: <span>20/10/2023</span></p>
+                    
+                    <p class="">Descripcion:</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
+
+                    <button>Eliminar</button>
+                </section>
+
+                <section class="appointments">
+                    <header class="appointments__heading">Citas</header>
+                    <p class="">Fecha: <span>20/10/2023</span></p>
+                    
+                    <p class="">Descripcion:</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
+
+                    <button>Eliminar</button>
+                </section>
+            </div>
+
+        </div>
+   </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__display">
+            <div class="footer__column">
+              <h3 class="footer__heading">Universidad</h3>
+              <img class="footer__image footer__image--cuc" src="./img/blackCUC-NoText.png" alt="CUC logo">
+              <a class="footer__link" href="https://www.cuc.ac.cr/" target="_blank">Colegio Universitario de Cartago</a>
+            </div>
+            
+            <div class="footer__column">
+              <h3 class="footer__heading">Curso</h3>
+              <img class="footer__image" src="./img/coding (1).png" alt="Programming">
+              <p class="footer__student">Programación IV</p>
+            </div>
+  
+            <div class="footer__column">
+              <h3 class="footer__heading">Estudiante</h3>
+              <img class="footer__image" src="./img/student-card.png" alt="Student">
+              <p class="footer__student">Brandon Gómez Carvajal</p>
+            </div>
+          </div>
+          <p class="footer__description">Website Created and Designed by <span> Brandon Gómez Carvajal </span>&copy;</p>
+        </div>
+      </footer>
+</body>
+</html>

@@ -47,6 +47,10 @@ a {
     color: var(--black);
 }
 
+fieldset {
+
+}
+
 [class$="container"] {
     width: 95%;
     max-width: 120rem;
@@ -54,6 +58,7 @@ a {
 }
 [class$="heading"] {
     text-align: center;
+    font-weight: 700;
 }
 @media (min-width: 768px) {
     [class$="container"] {
@@ -237,3 +242,27 @@ a {
 
 /* Forms */
 
+
+
+/* My Pets */
+
+.myPets__selector {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .myPets__selector {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .myPets__display {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 3rem;
+    }
+}

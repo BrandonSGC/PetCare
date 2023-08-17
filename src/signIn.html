@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <title>PetCare</title>
+    <title>PetCare - Registrarse</title>
 </head>
 <body>
     <!-- Header -->
@@ -25,26 +25,33 @@
         </div>
     </header>
 
-    <section class="welcome">
-        <div class="welcome__container">
-            <h2 class="header__logo welcome__heading">Bienvenido a Pet<span>Care</span>!</h2>
-            <div class="welcome__display">
-                <div class="welcome__text">
-                    <p class="welcome__description">PetCare Connect es más que una simple aplicación. Es un compañero esencial para todos los amantes de las mascotas. Diseñada con el objetivo de facilitar la vida de las mascotas y sus dueños</p>
-                    <button class="button welcome__button">Registrarse</button>
-                </div>
+    <!-- Sign in form -->
 
-                <div>
-                    <img class="welcome__image" src="./img/dog-2606759.jpg" alt="Pets">
-                </div>
-            </div>
+    <section class="signIn">
+        <div class="signIn__container">
+            <h2 class="signIn__heading">Registrarse</h2>
+            <form action="/register" method="POST" class="signInForm">
+                <fieldset class="form__fieldset">
+                    <label class="form__label" for="name">Nombre:</label>
+                    <input class="form__input" type="text" name="name" id="name">
+
+                    <label class="form__label" for="surnames">Apellidos:</label>
+                    <input class="form__input" type="text" name="surnames" id="surnames">
+                </fieldset>
+                
+                <fieldset class="form__fieldset">
+                    <label class="form__label" for="email">Email:</label>
+                    <input class="form__input" type="email" name="email" id="email">
+
+                    <label class="form__label" for="password">Contraseña:</label>
+                    <input class="form__input" type="password" name="password" id="password">
+                </fieldset>
+                <p class="alert">Warning</p>
+                <button class="form__button">Registrarse</button>
+            </form>
         </div>
-        
     </section>
 
-    <section class="galery">
-        <h2 class="galery__heading">Galería</h2>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">

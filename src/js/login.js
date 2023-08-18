@@ -33,21 +33,32 @@ function login(evt) {
 
 
 function showAlert(messageObject) {
-    const {success, message} = messageObject;
-    
+    const {success, message, userInfo} = messageObject;
+
     const alert = document.querySelector('.alert');
 
-    // Success ? if there is class = 'success', else 'error'.
-    console.log(success);
-    // alert.classList.add(success ? 'success' : 'error');
     if (success) {
         alert.classList.add('success');
         alert.classList.remove('error');
         alert.textContent = message;
+
+        const loginState = true;
+        localStorage.setItem('loginState', JSON.stringify(loginState));
+
+        // Get Info User
+        localStorage.setItem('userInfo', JSON.stringify(userInfo))
+        console.log(userInfo);
+        // const { id_usuario, nombre, apellidos, email, contrasena } = userInfo;
+        // console.log(id_usuario, nombre, apellidos, email, contrasena);
+
     } else {
         alert.classList.add('error');
         alert.classList.remove('success');
         alert.textContent = message;
+
+        const loginState = false;
+        localStorage.setItem('loginState', JSON.stringify(loginState));
+
+        localStorage.removeItem('userInfo');
     }
-    // alert.textContent = message;
 }

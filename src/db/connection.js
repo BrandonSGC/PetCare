@@ -25,7 +25,11 @@ async function spLogin(email, password) {
       .execute("spPetCare_Login");
 
     if (result.recordset.length > 0) {
-      return true;
+      const Info = {
+        success: true,
+        userInfo: result.recordset[0]
+      }
+      return Info;
     }
     return false;
   } catch (error) {

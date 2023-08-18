@@ -3,7 +3,9 @@ const selectPet = document.querySelector('#pet');
 const selectEvent = document.querySelector('#event');
 const isloggedIn = JSON.parse(localStorage.getItem('loginState'));
 const alert = document.querySelector('.alert');
+const createEventButton = document.querySelector('#createEvent');
 
+let petInfo = {};
 let petsList = [];
 
 
@@ -13,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     loadEvents();
 
     selectPet.addEventListener('change', loadPetData);
+
+    createEventButton.addEventListener('click', createEvent);
 })
 
 // Functions
@@ -47,18 +51,14 @@ function loadPets() {
     
 }
 
-
-
 function loadPetData() {
     const selectedPetId = parseInt(selectPet.value);
 
     // Get Selected Pet info.
-    const petInfo = petsList.find(pet => pet.id_mascota === selectedPetId);
+    petInfo = petsList.find(pet => pet.id_mascota === selectedPetId);
 
     console.log(petInfo);
 }
-
-
 
 function loadEvents() {
 
@@ -77,4 +77,46 @@ function loadEvents() {
             selectEvent.appendChild(option);
         });
     })
+}
+
+function createEvent(evt) {
+    evt.preventDefault();
+    // Validate form
+
+    // Get Data
+    const {id_mascota, id_dueno} = petInfo
+    const event = parseInt(selectEvent.value);
+    const date = document.querySelector('#date').value;
+    const description = document.querySelector('#description').value;
+
+    // Create object to send.
+    const data = { id_mascota, event, date, description }
+
+    fetch('./creaetEvent', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => showAlert(data))
+}
+
+
+function showAlert(messageObject) {
+    const {success, message} = messageObject;
+    
+    const alert = document.querySelector('.alert');
+
+    if (success) {
+        alert.classList.add('success');
+        alert.classList.remove('error');
+        alert.textContent = message;
+    } else {
+        alert.classList.add('error');
+        alert.classList.remove('success');
+        alert.textContent = message;
+    }
 }

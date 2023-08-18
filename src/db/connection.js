@@ -113,6 +113,27 @@ async function spGetEvents() {
 }
 
 
+async function spCreateEvent(petId, eventId, date, description) {
+  try {
+    const pool = await sql.connect(config);
+
+    await pool
+      .request()
+      .input("id_mascota", sql.Int, petId)
+      .input("id_tipo_evento", sql.Int, eventId)
+      .input("fecha", sql.Date, date)
+      .input("descripcion", sql.VarChar(120), description)
+      .execute("spPetCare_CreateEvent");
+
+    console.log("Event created succesfully");
+    return true;
+  } catch (error) {
+    console.error(`Error executing spPetCare_CreateEvent: ${error}.`);
+    return false;
+  }
+}
+
+
 // Export functions...
 module.exports = {
     spCreateUser,
@@ -120,4 +141,5 @@ module.exports = {
     spGetPetsByUserId,
     spLogin,
     spGetEvents,
+    spCreateEvent,
 };

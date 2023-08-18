@@ -26,57 +26,89 @@
 
    <main class="myPets">
         <div class="myPets__container">
-            <div class="">
-                <p>Mascotas registradas: <span id="petQuantity">0</span></p>
+            <h2 class="myPets__heading">Bienvenido de nuevo <span id="owner"></span>!</h2>
+            <div class="myPets__buttons">
+                <h3>Mascotas registradas: <span id="petQuantity">0</span></h3>
                 <a href="./petsMainteinance.html" class="button petsButton">Nueva Mascota</a>
                 <a href="./newEvent.html" class="button petsButton">Nueva Evento</a>
-                <p class="alert"></p>
+                <p class="alert myPets__alert"></p>
             </div>
-            
+
             <div class="myPets__selector">
-                <h2 class="myPets__heading">Mascota: </h2>
+                <label for="pet" class="myPets__heading">Mascota: </label>
                 <select class="form__input" name="pet" id="pet">
                     <option value="">-- Seleccione una mascota</option>
                 </select>
             </div>
+
+            <div class="myPets__info">
+                <p class="event__heading">Nombre: <span id="name"></span></p>
+                <p class="event__heading">Animal: <span id="kind"></span></p>
+                <p class="event__heading">Edad: <span id="age"></span></p>
+            </div>
             
             <div class="myPets__display">
-                <section class="pet">
-                    <header class="pet__heading">Mascota</header>
-                    <p>Nombre: <span id="name"></span></p>
-                    <p>Dueño: <span id="owner"></span></p>
-                    <p>Animal: <span id="kind"></span></p>
-                    <p>Edad: <span id="age"></span></p>
+
+                <section id="vaccines" class="event">
+                    <header class="event__heading">Vacunas</header>
+                    <div class="card">
+                        <p class="event__date">Fecha: <span>20/10/2023</span></p>
+                        
+                        <p class="event__description">Descripcion:</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
+
+                        <button class="button event__button">Eliminar</button>
+                    </div>
+                    <div class="card">
+                        <p class="event__date">Fecha: <span>20/10/2023</span></p>
+                        
+                        <p class="event__description">Descripcion:</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
+
+                        <button class="button event__button">Eliminar</button>
+                    </div>
                 </section>
 
-                <section class="vaccines">
-                    <header class="vaccines__heading">Vacunas</header>
-                    <p class="">Fecha: <span>20/10/2023</span></p>
-                    
-                    <p class="">Descripcion:</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
 
-                    <button class="button petsButton">Eliminar</button>
+                <section id="deworming" class="event">
+                    <header class="event__heading">Desparacitaciones</header>
+                    <div class="card">
+                        <p class="event__date">Fecha: <span>20/10/2023</span></p>
+                        
+                        <p class="event__description">Descripcion:</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
+
+                        <button class="button event__button">Eliminar</button>
+                    </div>
+                    <div class="card">
+                        <p class="event__date">Fecha: <span>20/10/2023</span></p>
+                        
+                        <p class="event__description">Descripcion:</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
+
+                        <button class="button event__button">Eliminar</button>
+                    </div>
                 </section>
 
-                <section class="deworming">
-                    <header class="deworming__heading">Desparacitaciones</header>
-                    <p class="">Fecha: <span>20/10/2023</span></p>
-                    
-                    <p class="">Descripcion:</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
 
-                    <button class="button petsButton">Eliminar</button>
-                </section>
+                <section id="appointments" class="event">
+                    <header class="event__heading">Citas</header>
+                    <div class="card">
+                        <p class="event__date">Fecha: <span>20/10/2023</span></p>
+                        
+                        <p class="event__description">Descripcion:</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
 
-                <section class="appointments">
-                    <header class="appointments__heading">Citas</header>
-                    <p class="">Fecha: <span>20/10/2023</span></p>
-                    
-                    <p class="">Descripcion:</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
+                        <button class="button event__button">Eliminar</button>
+                    </div>
+                    <div class="card">
+                        <p class="event__date">Fecha: <span>20/10/2023</span></p>
+                        
+                        <p class="event__description">Descripcion:</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minima eos odio, dolore quaerat dolores cupiditate </p>
 
-                    <button class="button petsButton ">Eliminar</button>
+                        <button class="button event__button">Eliminar</button>
+                    </div>
                 </section>
             </div>
 

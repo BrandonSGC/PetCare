@@ -33,7 +33,7 @@ h2 {
     font-size: 4.2rem;
 }
 h3 {
-    /* font-size: 4rem; */
+    font-size: 3rem;
 }
 h1, h2, h3, h4 {
     font-family: var(--headings);
@@ -439,7 +439,68 @@ fieldset {
 
     .myPets__display {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         column-gap: 3rem;
     }
 }
+
+
+#petQuantity {
+    font-weight: 700;
+}
+
+.myPets__buttons {
+    text-align: center;
+}
+
+.myPets__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .myPets__info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.myPets__alert {
+    margin: 2rem auto;
+    font-size: 2.5rem;
+}
+
+#pet {
+    background-color: var(--peach);
+}
+
+.card {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border: 1px solid var(--lightOlive);
+}
+
+.event__date,
+.event__description {
+    font-weight: bold;
+}
+
+
+.event__heading {
+    font-size: 2.5rem;
+    margin: 2rem 0;
+}
+
+
+.event__date span,
+.event__heading span {
+    font-weight: lighter;
+}
+
+.event__button {
+    background-color: var(--peach);
+    display: block;
+    width: 100%;
+}
+

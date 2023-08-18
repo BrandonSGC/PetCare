@@ -19,6 +19,9 @@ function loadPets() {
         // Get User Info
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         const { id_usuario } = userInfo;
+
+        showUserName(userInfo);
+
         // Send UserId as a URL parameter.
         fetch(`/getPets?id_usuario=${id_usuario}`)
         .then(data => data.json())
@@ -40,9 +43,9 @@ function loadPets() {
             });
         })
     } else {
-        alert.classList.add('error');
+        alert.classList.add('warning');
         alert.classList.remove('success');
-        alert.textContent = 'Debes de iniciar sesión primero...';
+        alert.textContent = 'Por favor inicia sesión para cargar tus mascotas!';
     }
     
 }
@@ -62,12 +65,16 @@ function showPetData(pet) {
     const { id_mascota, nombre_dueno, id_dueno, nombre, tipo, fecha_nacimiento} = pet;
     
     const petName = document.querySelector('#name');
-    const petOwner = document.querySelector('#owner');
     const petKind = document.querySelector('#kind');
     const petAge = document.querySelector('#age');
 
     petName.textContent = nombre;
-    petOwner.textContent = nombre_dueno;
     petKind.textContent = tipo;
     petAge.textContent = fecha_nacimiento;
+}
+
+function showUserName(userInfo) {
+    const {nombre} = userInfo
+    const owner = document.querySelector('#owner');
+    owner.textContent = nombre;
 }

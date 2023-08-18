@@ -29,7 +29,6 @@ function loadPets() {
             const petQuantity = document.querySelector('#petQuantity');
             petQuantity.textContent = pets.length;
 
-            console.log(`User has: ${pets.length} pets`);
             petsList = [...pets];
             pets.forEach(pet => {
 
@@ -56,7 +55,8 @@ function loadPetData() {
     // Get Selected Pet info.
     const petInfo = petsList.find(pet => pet.id_mascota === selectedPetId);
 
-    console.log(petInfo);
+    // Get All Events
+    getEventsByPet(petInfo.id_mascota);
 
     showPetData(petInfo);
 }
@@ -77,4 +77,74 @@ function showUserName(userInfo) {
     const {nombre} = userInfo
     const owner = document.querySelector('#owner');
     owner.textContent = nombre;
+}
+
+function getEventsByPet(id_mascota) {
+    // limpiarHTML();
+
+    // Send id_mascota as a URL parameter.
+    fetch(`/getPetEvents?id_mascota=${id_mascota}`)
+    .then(data => data.json())
+    .then(events => {
+        events.forEach(event => {
+            const { id_evento, nombre, fecha, descripcion, id_tipo_evento, descripcion_evento } = event;
+
+
+            if (id_tipo_evento === 1) {
+                const vaccineContainer = document.querySelector('#vaccines');
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.id = id_evento;
+                card.innerHTML = `
+                    <p class="event__date">Fecha: <span>${fecha}</span></p>
+                            
+                    <p class="event__description">Descripcion:</p>
+                    <p>${descripcion}</p>
+
+                    <button class="button event__button">Eliminar</button>
+                `;
+                vaccineContainer.appendChild(card);
+
+            } else if (id_tipo_evento === 2) {
+                const dewormingContainer = document.querySelector('#deworming');
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.id = id_evento;
+                card.innerHTML = `
+                    <p class="event__date">Fecha: <span>${fecha}</span></p>
+                            
+                    <p class="event__description">Descripcion:</p>
+                    <p>${descripcion}</p>
+
+                    <button class="button event__button">Eliminar</button>
+                `;
+                dewormingContainer.appendChild(card);
+            } else {
+                const appointmentsContainer = document.querySelector('#appointments');
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.id = id_evento;
+                card.innerHTML = `
+                    <p class="event__date">Fecha: <span>${fecha}</span></p>
+                            
+                    <p class="event__description">Descripcion:</p>
+                    <p>${descripcion}</p>
+
+                    <button class="button event__button">Eliminar</button>
+                `;
+                appointmentsContainer.appendChild(card);
+            }
+        });
+    })
+}
+
+function limpiarHTML() {
+    const appointmentsContainer = document.querySelector('#appointments');
+
+    while (vaccineContainer.firstChild) {;
+        appointmentsContainer.removeChild(appointmentsContainer.firstChild);
+    }
 }

@@ -68,10 +68,10 @@ function loadEvents() {
 
         events.forEach(event => {
 
-            const { id_evento, descripcion } = event;
+            const { id_tipo_evento, descripcion } = event;
 
             const option = document.createElement('option');
-            option.value = id_evento;
+            option.value = id_tipo_evento;
             option.textContent = descripcion;
 
             selectEvent.appendChild(option);
@@ -89,10 +89,12 @@ function createEvent(evt) {
     const date = document.querySelector('#date').value;
     const description = document.querySelector('#description').value;
 
+    console.log(id_mascota, event, date, description);
+
     // Create object to send.
     const data = { id_mascota, event, date, description }
 
-    fetch('./creaetEvent', {
+    fetch('/createEvent', {
         method: 'POST',
         headers: {
             Accept: 'application/json',

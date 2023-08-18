@@ -1,23 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const { spGetEvents, spCreateEvent } = require('../db/connection.js');
+const { spGetEvents, spCreateEvent, spGetEventsByPet } = require('../db/connection.js');
 
-
-router.get('/getEvents', async (req, res) => {
-    try {
-        const pets = await spGetEvents();
-        res.json(pets);
-    } catch (error) {
-        console.log(error);
-    }
-});
-
-
-
-router.post('/creaetEvent', async (req, res) => {
+router.post('/createEvent', async (req, res) => {
     // Get data from request
     const { id_mascota, event, date, description } = req.body;
+
+    console.log(id_mascota, event, date, description)
     
     try {
         if (await spCreateEvent(id_mascota, event, date, description)) {
@@ -31,6 +21,26 @@ router.post('/creaetEvent', async (req, res) => {
     }
 });
 
+
+router.get('/getEvents', async (req, res) => {
+    try {
+        const events = await spGetEvents();
+        res.json(events);
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+router.get('/getPetEvents', async (req, res) => {
+    // Get data from request
+    const { id_mascota } = req.query;
+    try {
+        const events = await spGetEventsByPet(id_mascota);
+        res.json(events);
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 
 

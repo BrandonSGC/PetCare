@@ -134,6 +134,23 @@ async function spCreateEvent(petId, eventId, date, description) {
 }
 
 
+async function spGetEventsByPet(id_mascota) {
+  try {
+    const pool = await sql.connect(config);
+
+    const result = await pool
+      .request()
+      .input("id_mascota", sql.Int, id_mascota)
+      .execute("spPetCare_GetEventsByPet");
+
+    return result.recordset;
+  } catch (error) {
+    console.error(`Error executing spPetCare_CreateUser: ${error}.`);
+    return false;
+  }
+}
+
+
 // Export functions...
 module.exports = {
     spCreateUser,
@@ -142,4 +159,5 @@ module.exports = {
     spLogin,
     spGetEvents,
     spCreateEvent,
+    spGetEventsByPet,
 };

@@ -1,22 +1,23 @@
 const express = require('express');
 const router = express.Router();
 
-const { spCreatePet } = require('../db/connection.js');
+const { spCreatePet, spGetPetsByUserId } = require('../db/connection.js');
+const { rootCertificates } = require('tls');
 
 router.post('/registerPet', async (req, res) => {
     const { name, animal, fechaNacimiento } = req.body;
     console.log(name, animal, fechaNacimiento);
+});
 
-    // try {
-    //     if (condition) {
-            
-    //     } else {
-            
-    //     }
-    // } catch (error) {
-    //     console.log(error)
-    //     return {success: false, message: ''};
-    // }
-})
+router.get('/getPets', async (req, res) => {
+    // We have to get the userId...
+    // const { id } = req.body;
+    try {
+        const pets = await spGetPetsByUserId(1);
+        res.json(pets);
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 module.exports = router;

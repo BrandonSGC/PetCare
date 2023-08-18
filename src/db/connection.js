@@ -54,8 +54,28 @@ async function spCreatePet(name, surnames, email, password) {
   }
 }
 
+async function spGetPetsByUserId(id) {
+  try {
+    const pool = await sql.connect(config);
+
+    const result = await pool
+      .request()
+      .input("UserId", sql.Int, id)
+      .execute("spPetCare_GetPetsByUserId");
+
+    // Print the result to make sure we're getting the data...
+    return result.recordset;
+    // return true;
+  } catch (error) {
+    console.error(`Error executing spPetCare_CreateUser: ${error}.`);
+    return false;
+  }
+}
+
 
 // Export functions...
 module.exports = {
     spCreateUser,
+    spCreatePet,
+    spGetPetsByUserId,
 };

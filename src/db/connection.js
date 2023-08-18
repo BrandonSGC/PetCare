@@ -34,6 +34,26 @@ async function spCreateUser(name, surnames, email, password) {
   }
 }
 
+async function spCreatePet(name, surnames, email, password) {
+  try {
+    const pool = await sql.connect(config);
+
+    await pool
+      .request()
+      .input("nombre", name)
+      .input("apellidos", surnames)
+      .input("email", email)
+      .input("contrasena", password)
+      .execute("spPetCare_CreateUser");
+
+    console.log("User created succesfully");
+    return true;
+  } catch (error) {
+    console.error(`Error executing spPetCare_CreateUser: ${error}.`);
+    return false;
+  }
+}
+
 
 // Export functions...
 module.exports = {

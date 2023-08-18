@@ -33,7 +33,7 @@ h2 {
     font-size: 4.2rem;
 }
 h3 {
-    font-size: 4;
+    font-size: 4rem;
 }
 h1, h2, h3, h4 {
     font-family: var(--headings);
@@ -72,6 +72,7 @@ fieldset {
     border: none;
     border-radius: .3rem;
     cursor: pointer;
+    text-align: center;
 }
 
 /* Header */
@@ -360,6 +361,42 @@ fieldset {
 .pet__button {
     width: 100%;
     background-color: var(--mediumAquamarine);
+}
+
+
+/* Login Form */
+.loginForm {
+    background-color: var(--salmon);
+    margin: 2rem 0;
+    border-radius: .3rem;
+    max-width: 40rem;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+.login__heading {
+    margin: 1rem 0 3rem 0;
+}
+
+.login__fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__input {
+    margin: .5rem 0;
+}
+
+.login__button {
+    background-color: var(--mediumAquamarine);
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.login__registrarme {
+    color: #0044ff;
+    text-decoration: underline;
+    margin-left: 1rem;
 }
 
 

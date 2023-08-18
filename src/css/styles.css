@@ -403,7 +403,16 @@ fieldset {
     margin-left: 1rem;
 }
 
-
+/* Event Form*/
+.eventForm {
+    background-color: var(--lightOlive);
+    border-radius: .3rem;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+.event__field {
+    margin: 1rem 0;
+}
 
 /* My Pets */
 .myPets {

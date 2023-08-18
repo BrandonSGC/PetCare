@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 const { spCreatePet, spGetPetsByUserId } = require('../db/connection.js');
-const { rootCertificates } = require('tls');
 
 router.post('/registerPet', async (req, res) => {
+    // Get data from request
     const { name, animal, fechaNacimiento } = req.body;
     console.log(name, animal, fechaNacimiento);
+    
 });
 
 router.get('/getPets', async (req, res) => {

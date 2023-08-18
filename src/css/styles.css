@@ -390,7 +390,6 @@ fieldset {
 
 .login__button {
     background-color: var(--mediumAquamarine);
-    margin: 1rem 0;
     width: 100%;
 }
 
@@ -403,11 +402,18 @@ fieldset {
 
 
 /* My Pets */
+.myPets {
+    margin: 3rem 0;
+}
 
 .myPets__selector {
     display: flex;
     flex-direction: column;
     margin-bottom: 3rem;
+}
+
+.petsButton {
+    background-color: var(--peach);
 }
 
 @media (min-width: 768px) {

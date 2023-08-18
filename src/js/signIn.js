@@ -39,7 +39,13 @@ function showAlert(messageObject) {
     
     const alert = document.querySelector('.alert');
 
-    // Success ? if there is class = 'success', else 'error'.
-    alert.classList.add(success ? 'success' : 'error');
-    alert.textContent = message;
+    if (success) {
+        alert.classList.add('success');
+        alert.classList.remove('error');
+        alert.textContent = message;
+    } else {
+        alert.classList.add('error');
+        alert.classList.remove('success');
+        alert.textContent = message;
+    }
 }

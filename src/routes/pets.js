@@ -10,8 +10,11 @@ router.post('/registerPet', async (req, res) => {
 });
 
 router.get('/getPets', async (req, res) => {
-    // We have to get the userId...
-    // const { id } = req.body;
+    // validate login...
+
+    // Then we have to get the userId or the user information...
+
+    // Finally we get the pets information from the user registered
     try {
         const pets = await spGetPetsByUserId(1);
         res.json(pets);

@@ -14,6 +14,26 @@ const config = {
 
 // Functions
 
+async function spLogin(email, password) {
+  try {
+    const pool = await sql.connect(config);
+
+    const result = await pool
+      .request()
+      .input("email", sql.VarChar(60), email)
+      .input("password", sql.VarChar(30), password)
+      .execute("spPetCare_Login");
+
+    if (result.recordset.length > 0) {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    console.error(`Error executing spPetCare_Login: ${error}.`);
+    return false;
+  }
+}
+
 async function spCreateUser(name, surnames, email, password) {
   try {
     const pool = await sql.connect(config);
@@ -78,4 +98,5 @@ module.exports = {
     spCreateUser,
     spCreatePet,
     spGetPetsByUserId,
+    spLogin,
 };

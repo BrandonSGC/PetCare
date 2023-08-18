@@ -8,8 +8,10 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     
     try {
-        if (await spLogin(email, password)) {
-            res.json({success: true, message:'Se ha iniciado sesión correctamente!'});
+        const info = await spLogin(email, password);
+
+        if (info.success) {
+            res.json({success: true, message:'Se ha iniciado sesión correctamente!', userInfo: info.userInfo});
         } else {
             res.json({success: false, message:'Credenciales inválidas.'});
         }

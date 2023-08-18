@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, "..")));
 const userRoutes = require('../routes/users.js');
 const petRoutes = require('../routes/pets.js');
 const loginRoute = require('../routes/login.js');
+const eventRoutes = require('../routes/events.js');
 
 
 // Server
@@ -32,3 +33,4 @@ app.get("/", (req, res) => {
 app.use('/', userRoutes);
 app.use('/', petRoutes);
 app.use('/', loginRoute);
+app.use('/', eventRoutes);

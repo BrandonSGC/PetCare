@@ -1,7 +1,8 @@
 // Variables
 const selectPet = document.querySelector('#pet');
+const selectEvent = document.querySelector('#event');
 const isloggedIn = JSON.parse(localStorage.getItem('loginState'));
-// const alert = document.querySelector('.alert');
+const alert = document.querySelector('.alert');
 
 let petsList = [];
 
@@ -9,6 +10,7 @@ let petsList = [];
 // Events
 document.addEventListener('DOMContentLoaded', () => {
     loadPets();
+    loadEvents();
 
     selectPet.addEventListener('change', loadPetData);
 })
@@ -24,8 +26,6 @@ function loadPets() {
         fetch(`/getPets?id_usuario=${id_usuario}`)
         .then(data => data.json())
         .then(pets => {
-            
-            console.log(`User has: ${pets.length} pets`);
 
             petsList = [...pets];
             pets.forEach(pet => {
@@ -58,3 +58,23 @@ function loadPetData() {
     console.log(petInfo);
 }
 
+
+
+function loadEvents() {
+
+    fetch(`/getEvents`)
+    .then(data => data.json())
+    .then(events => {
+
+        events.forEach(event => {
+
+            const { id_evento, descripcion } = event;
+
+            const option = document.createElement('option');
+            option.value = id_evento;
+            option.textContent = descripcion;
+
+            selectEvent.appendChild(option);
+        });
+    })
+}

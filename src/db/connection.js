@@ -87,11 +87,27 @@ async function spGetPetsByUserId(id) {
       .input("UserId", sql.Int, id)
       .execute("spPetCare_GetPetsByUserId");
 
-    // Print the result to make sure we're getting the data...
     return result.recordset;
     // return true;
   } catch (error) {
     console.error(`Error executing spPetCare_CreateUser: ${error}.`);
+    return false;
+  }
+}
+
+async function spGetEvents() {
+  try {
+    const pool = await sql.connect(config);
+
+    const result = await pool
+      .request()
+      .execute("spPetCare_GetEvents");
+
+    
+    return result.recordset;
+
+  } catch (error) {
+    console.error(`Error executing spPetCare_GetEvents: ${error}.`);
     return false;
   }
 }
@@ -103,4 +119,5 @@ module.exports = {
     spCreatePet,
     spGetPetsByUserId,
     spLogin,
+    spGetEvents,
 };

@@ -58,22 +58,22 @@ async function spCreateUser(name, surnames, email, password) {
   }
 }
 
-async function spCreatePet(name, surnames, email, password) {
+async function spCreatePet(id_dueno, name, kind, birthdate) {
   try {
     const pool = await sql.connect(config);
 
     await pool
       .request()
-      .input("nombre", name)
-      .input("apellidos", surnames)
-      .input("email", email)
-      .input("contrasena", password)
-      .execute("spPetCare_CreateUser");
+      .input("id_dueno", sql.Int, id_dueno)
+      .input("nombre", sql.VarChar(30), name)
+      .input("tipo", sql.VarChar(60), kind)
+      .input("fecha_nacimiento", sql.Date, birthdate)
+      .execute("spPetCare_CreatePet");
 
-    console.log("User created succesfully");
+    console.log("Pet created succesfully");
     return true;
   } catch (error) {
-    console.error(`Error executing spPetCare_CreateUser: ${error}.`);
+    console.error(`Error executing spPetCare_CreatePet: ${error}.`);
     return false;
   }
 }

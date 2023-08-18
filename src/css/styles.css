@@ -151,6 +151,10 @@ fieldset {
     text-align: center;
 }
 
+.welcome__description {
+    text-wrap: balance;
+}
+
 @media (min-width: 768px) {
     .welcome__display {
         display: grid;

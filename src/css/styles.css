@@ -186,11 +186,37 @@ fieldset {
 .galery 
 {
     background-color: var(--lightOlive);
-    height: 30rem;
+    padding-bottom: 3rem;
 }
 
 .galery__heading {
     padding: 3rem 0;
+}
+
+.galery__display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+@media (min-width: 500px) {
+    .galery__display {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .galery__display {
+        gap: 3rem;
+    }
+}
+
+.galery__image {
+    max-height: 19rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { spGetEvents, spCreateEvent, spGetEventsByPet } = require('../db/connection.js');
+const { spGetEvents, spCreateEvent, spGetEventsByPet, spDeleteEventById } = require('../db/connection.js');
 
 router.post('/createEvent', async (req, res) => {
     // Get data from request
@@ -42,6 +42,22 @@ router.get('/getPetEvents', async (req, res) => {
     }
 });
 
+router.delete('/deleteEvent', async (req, res) => {
+    // Get data from request
+    const { id } = req.body;
 
+    console.log(id)
+    
+    try {
+        if (await spDeleteEventById(id)) {
+            res.json({success: true, message:'Evento eliminado correctamente!'});
+        } else {
+            res.json({success: false, message:'Ha ocurrido un error eliminando el Evento.'});
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({success: false, message:'Ha ocurrido un error en el servidor.'});
+    }
+});
 
 module.exports = router;

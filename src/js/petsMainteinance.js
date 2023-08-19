@@ -1,6 +1,7 @@
 // Do fetch with id_usuario and the data from the pet to /registerPet...
 const isloggedIn = JSON.parse(localStorage.getItem('loginState'));
 
+
 document.addEventListener('DOMContentLoaded', () => {
     // Variables
     const registerButton = document.querySelector('.pet__button');
@@ -23,8 +24,14 @@ function registerPet(evt) {
         const fechaNacimiento = document.querySelector('#fechaNacimiento').value;
         const id_dueno = JSON.parse(localStorage.getItem('userInfo')).id_usuario;
 
+
+        // Get info USer
+        const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+        const { email } = userInfo;
+        const message = `${name} ahora es parte de tus mascotas en PetCare!`;
+
         // Create object to send.
-        const data = { name, kind, fechaNacimiento, id_dueno }
+        const data = { name, kind, fechaNacimiento, id_dueno, email, message }
 
         fetch('./registerPet', {
             method: 'POST',
@@ -36,6 +43,7 @@ function registerPet(evt) {
         })
         .then(response => response.json())
         .then(data => showAlert(data))
+
     } else {
         const alert = document.querySelector('.alert');
 
@@ -55,6 +63,7 @@ function showAlert(messageObject) {
         alert.classList.add('success');
         alert.classList.remove('error');
         alert.textContent = message;
+
     } else {
         alert.classList.add('error');
         alert.classList.remove('success');

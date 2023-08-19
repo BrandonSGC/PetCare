@@ -1,4 +1,5 @@
 // Variables
+const eventsContainer = document.querySelector('.myPets__display');
 const selectPet = document.querySelector('#pet');
 const isloggedIn = JSON.parse(localStorage.getItem('loginState'));
 const alert = document.querySelector('.alert');
@@ -55,10 +56,11 @@ function loadPetData() {
     // Get Selected Pet info.
     const petInfo = petsList.find(pet => pet.id_mascota === selectedPetId);
 
+    // Show Pet information
+    showPetData(petInfo);
+
     // Get All Events
     getEventsByPet(petInfo.id_mascota);
-
-    showPetData(petInfo);
 }
 
 function showPetData(pet) {
@@ -102,7 +104,7 @@ function getEventsByPet(id_mascota) {
                     <p class="event__description">Descripcion:</p>
                     <p>${descripcion}</p>
 
-                    <button class="button event__button">Eliminar</button>
+                    <button id="delete" class="button event__button">Eliminar</button>
                 `;
                 vaccineContainer.appendChild(card);
 
@@ -118,7 +120,7 @@ function getEventsByPet(id_mascota) {
                     <p class="event__description">Descripcion:</p>
                     <p>${descripcion}</p>
 
-                    <button class="button event__button">Eliminar</button>
+                    <button id="delete" class="button event__button">Eliminar</button>
                 `;
                 dewormingContainer.appendChild(card);
             } else {
@@ -133,12 +135,39 @@ function getEventsByPet(id_mascota) {
                     <p class="event__description">Descripcion:</p>
                     <p>${descripcion}</p>
 
-                    <button class="button event__button">Eliminar</button>
+                    <button id="delete" class="button event__button">Eliminar</button>
                 `;
                 appointmentsContainer.appendChild(card);
             }
         });
+
+        eventsContainer.addEventListener('click', deleteEvent);
+        
     })
+
+    
+}
+
+function deleteEvent(evt) {
+    if (evt.target.classList.contains('event__button')) {
+        console.log(`Eliminando el evento con id: ${evt.target.parentElement.id}`);
+
+        // Funcionalidad...
+        const data = {id: evt.target.parentElement.id}
+
+        fetch('/deleteEvent', {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(message => console.log(message))
+
+    }
+    
 }
 
 function limpiarHTML() {

@@ -151,6 +151,23 @@ async function spGetEventsByPet(id_mascota) {
 }
 
 
+async function spDeleteEventById(id) {
+  try {
+    const pool = await sql.connect(config);
+
+    await pool
+      .request()
+      .input("eventId", sql.Int, id)
+      .execute("spPetCare_DeleteEventById");
+    return true;
+    // return true;
+  } catch (error) {
+    console.error(`Error executing spPetCare_CreateUser: ${error}.`);
+    return false;
+  }
+}
+
+
 // Export functions...
 module.exports = {
     spCreateUser,
@@ -160,4 +177,5 @@ module.exports = {
     spGetEvents,
     spCreateEvent,
     spGetEventsByPet,
+    spDeleteEventById,
 };
